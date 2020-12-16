@@ -1,9 +1,24 @@
-const http = require('http');
+const express = require("express");
+const app = express();
+const user_repository = require("./User/user_repository").user_repository;
+// const database_connection = require("./mysql/mysql_connector");
 
-const requestListener = function (req, res) {
-  res.writeHead(200);
-  res.end('Hello, World!');
-}
+// import routes
+const authRoute = require("./routes/auth");
 
-const server = http.createServer(requestListener);
-server.listen(8080);
+// route middleware
+app.use("/api/user", authRoute);
+
+
+// logic
+user_repository.getUser(1)
+.then((rows) => {
+    console.log(rows);
+})
+.catch((err) => {
+    console.log(err);
+});
+
+
+
+app.listen(8080, () => {console.log("Server started successfully !")});

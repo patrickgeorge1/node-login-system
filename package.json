@@ -1,0 +1,27 @@
+{
+  "name": "node-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mysql_connector.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "node": "^15.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrickgeorge1/node-login-system.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patrickgeorge1/node-login-system/issues"
+  },
+  "homepage": "https://github.com/patrickgeorge1/node-login-system#readme"
+}
