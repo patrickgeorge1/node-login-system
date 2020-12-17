@@ -1,24 +1,16 @@
+require("dotenv").config;
+
 const express = require("express");
 const app = express();
-const user_repository = require("./User/user_repository").user_repository;
-// const database_connection = require("./mysql/mysql_connector");
 
-// import routes
-const authRoute = require("./routes/auth");
-
-// route middleware
-app.use("/api/user", authRoute);
+// convert each JSON to js object
+app.use(express.json());
 
 
-// logic
-let user = user_repository.getUser(2)
-.then((rows) => {
-    console.log(rows);
-})
-.catch((err) => {
-    console.log(err);
-});
+// routers
+const userRouter = require("./api/users/user.router");
+app.use("/api", userRouter);
 
 
 
-app.listen(8080, () => {console.log("Server started successfully !")});
+app.listen(process.env.APP_PORT, () => {console.log(`Server started on ${process.env.APP_PORT} `)});
