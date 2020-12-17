@@ -11,7 +11,7 @@ app.use("/api/user", authRoute);
 
 
 // logic
-user_repository.getUser(1)
+let user = user_repository.getUser(2)
 .then((rows) => {
     console.log(rows);
 })
