@@ -3,7 +3,7 @@ const pool = require("../../utils/db");
 
 
 module.exports = {
-    createUser: (data, callBack) => {
+    addUser: (data, callBack) => {
         pool.query(
             `insert into users(email, password, name) values (?, ?, ?)`,
             [
@@ -41,7 +41,7 @@ module.exports = {
                 if (error) {
                     return callBack(error);
                 }
-                return callBack(null, results);
+                return callBack(null, results[0]);
             }
         )
     }
